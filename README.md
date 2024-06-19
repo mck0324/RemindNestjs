@@ -11,3 +11,6 @@ Cotroller는 모든 url을 다 넣어놓고,Service는 필요하다면 데이터
 
 Single-responsibility principle이란?
 하나의 moudule,class 혹은 function이 하나의 기능은 꼭 책임져야한다.
+
+Dependency Injection이란?
+ex)Movies모듈에서 providers:MoviesService를 등록하여 Controller에서 'constructor(private readonly movieService: MoviesService) {}'를 사용하여 Service를 불러올 수 있게 된다.
