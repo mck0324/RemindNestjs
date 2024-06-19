@@ -31,8 +31,8 @@ export class MoviesController {
         return this.movieService.deleteOne(movieId);
     }
     @Patch("/:id")
-    patch(@Param('id') movieId: string) {
-        return `This will patch a movie with the id: ${movieId}`;
+    patch(@Param('id') movieId: string, @Body() updateData) {
+        return this.movieService.update(movieId,updateData);
     }
 }
  
