@@ -3,6 +3,7 @@ import { retry } from 'rxjs';
 import { MoviesService } from './movies.service';
 import { Movie } from './entities/movie.entity';
 import { CreateMovieDTO } from './dto/create-movie.dto';
+import { UpdateMovieDTO } from './dto/update-movie.dto';
 
 @Controller('movies')
 export class MoviesController {
@@ -33,7 +34,7 @@ export class MoviesController {
         return this.movieService.deleteOne(movieId);
     }
     @Patch("/:id")
-    patch(@Param('id') movieId: number, @Body() updateData) {
+    patch(@Param('id') movieId: number, @Body() updateData: UpdateMovieDTO) {
         return this.movieService.update(movieId,updateData);
     }
 }
