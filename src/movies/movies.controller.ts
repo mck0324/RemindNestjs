@@ -1,4 +1,5 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Delete, Get, Param, Patch, Post, Put } from '@nestjs/common';
+import { retry } from 'rxjs';
 
 @Controller('movies')
 export class MoviesController {
@@ -13,4 +14,16 @@ export class MoviesController {
         return `This will return one Movie with the id: ${id}`;
     } 
 
+    @Post()
+    create() {
+        return "This will create a movie";
+    }
+    @Delete("/:id")
+    remove(@Param("id") movieId: string) {
+        return `This will delete a movie with the id: ${movieId}`;
+    }
+    @Patch("/:id")
+    patch(@Param('id') movieId: string) {
+        return `This will patch a movie with the id: ${movieId}`;
+    }
 }
