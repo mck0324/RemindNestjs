@@ -1,6 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Put, Query } from '@nestjs/common';
 import { retry } from 'rxjs';
 import { MoviesService } from './movies.service';
+import { Movie } from './entities/movie.entity';
 
 @Controller('movies')
 export class MoviesController {
@@ -17,17 +18,17 @@ export class MoviesController {
     }
 
     @Get("/:id")
-    getOne(@Param("id") id: string) {
-        return this.movieService.getOne(id);
+    getOne(@Param("id") movieId: string): Movie {
+        return this.movieService.getOne(movieId);
     } 
 
     @Post()
     create(@Body() movieData) {
-        return movieData ;
+        return this.movieService.create(movieData) ;
     }
     @Delete("/:id")
     remove(@Param("id") movieId: string) {
-        return `This will delete a movie with the id: ${movieId}`;
+        return this.movieService.deleteOne(movieId);
     }
     @Patch("/:id")
     patch(@Param('id') movieId: string) {
