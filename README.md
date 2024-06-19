@@ -14,3 +14,12 @@ Single-responsibility principle이란?
 
 Dependency Injection이란?
 ex)Movies모듈에서 providers:MoviesService를 등록하여 Controller에서 'constructor(private readonly movieService: MoviesService) {}'를 사용하여 Service를 불러올 수 있게 된다.
+그러므로 Module의 provider에 import를하고 Controller에 Inject(주입)
+
+Testing
+1.유닛테스트
+- 시스템에서 function 같은 하나의 유닛만을 테스트
+ex)MoviceServce -> getAll()
+2.e2e(End To End)테스트
+- 전체시스템을 테스트 
+ex)사용자 관점에서 페이지 이동시 데이터 등!
