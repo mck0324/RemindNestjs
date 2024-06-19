@@ -8,3 +8,6 @@ ex)Controller에서 바로 리턴을 할 수 있지만 왜 Service가 필요할�
 
 쉽게 말해
 Cotroller는 모든 url을 다 넣어놓고,Service는 필요하다면 데이터베이스와 연락하는곳
+
+Single-responsibility principle이란?
+하나의 moudule,class 혹은 function이 하나의 기능은 꼭 책임져야한다.
