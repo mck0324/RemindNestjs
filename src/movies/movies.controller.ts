@@ -14,12 +14,12 @@ export class MoviesController {
     getAll(){
         return this.movieService.getAll();
     }
-    @Get('search')
-    search(@Query('year') searchingYear: string) {
-        return `We are searching for a movie made after: ${searchingYear}`
-    }
+    // @Get('search')
+    // search(@Query('year') searchingYear: string) {
+    //     return `We are searching for a movie made after: ${searchingYear}`
+    // }
 
-    @Get("/:id")
+    @Get(":id")
     getOne(@Param("id") movieId: number): Movie {
         console.log("type",typeof(movieId))
         return this.movieService.getOne(movieId);
@@ -29,11 +29,11 @@ export class MoviesController {
     create(@Body() movieData: CreateMovieDTO) {
         return this.movieService.create(movieData) ;
     }
-    @Delete("/:id")
+    @Delete(":id")
     remove(@Param("id") movieId: number) {
         return this.movieService.deleteOne(movieId);
     }
-    @Patch("/:id")
+    @Patch(":id")
     patch(@Param('id') movieId: number, @Body() updateData: UpdateMovieDTO) {
         return this.movieService.update(movieId,updateData);
     }
